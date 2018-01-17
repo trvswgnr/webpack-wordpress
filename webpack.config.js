@@ -1,4 +1,4 @@
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var ExtractText = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: ['./src/js/main.js', './src/scss/main.scss'],
@@ -9,14 +9,14 @@ module.exports = {
     rules: [
       {
         test: /\.(css|sass|scss)$/,
-        use: ExtractTextPlugin.extract({
+        use: ExtractText.extract({
           use: ['css-loader', 'sass-loader'],
         })
       }
     ]
   },
   plugins: [
-    new ExtractTextPlugin({
+    new ExtractText({
       filename: 'assets/css/[name].css',
       allChunks: true,
     }),
